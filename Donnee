@@ -1,0 +1,21 @@
+-- MySQL dump 10.4 --
+
+DELETE FROM Relaxation;
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Introduction 1','1','RR01','1','90','15','Induction 1','a','8','0','1','No',"Voilà c'est le début de la relaxation et c'est le texte 1");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Introduction 2','1','RR02','2','120','30','Induction 2','b','5','1','1','No',"Voilà c'est le début de la relaxation et c'est le texte 2");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Introduction 3','1','RR03','3','130','20','Induction 3','a','1','0','1','No',"Voilà c'est le début de la relaxation et c'est le texte 3");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Relaxation 1','2','RR01','1','3mn 30','10','Au milieu 1','b','6','1','0','No',"Voilà c'est le milieu de la relaxation et c'est le texte 1");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Relaxation 2','2','RR02','2','600','5','Au milieu 2','a','8','1','0','No',"Voilà c'est le milieu de la relaxation et c'est le texte 2");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Relaxation 3','2','RR03','3','1h 12mn 5s','0','Au milieu 3','b','9','1','0','No',"Voilà c'est le milieu de la relaxation et c'est le texte 3");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Sortie 1','3','RR01','1','59','1','Vers la fin 1','a','10','0','1','No',"Voilà c'est la fin de la relaxation et c'est le texte 1");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Sortie 2','3','RR02','2','20','20','Vers la fin 2','b','4','0','1','No',"Voilà c'est la fin de la relaxation et c'est le texte 2");
+INSERT INTO Relaxation(Titre, Type, Tag, DureeN, DureeR, DureeA, Details, DetailsPlus, Profondeur, Cotes, Niveau, Mp3, Text)
+    VALUES ('Sortie 3','3','RR03','3','15','30','Vers la fin 3','a','1','0','1','No',"Voilà c'est la fin de la relaxation et c'est le texte 3");
