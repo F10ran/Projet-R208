@@ -1,0 +1,28 @@
+/* Destruction eventuelle des tables existantes */
+
+DROP TABLE Relaxation ;
+
+/* Creation de la base de donnée */
+
+CREATE DATABASE Yoga ;
+
+/* Utilisation de cette base de donnée */
+
+USE Yoga ;
+
+/* Creation des tables */
+
+CREATE TABLE Relaxation ( 
+    Titre VARCHAR(255) NOT NULL,
+    Type INTEGER NOT NULL,
+    Tag  VARCHAR(255) NOT NULL,
+    DureeN  INTEGER NOT NULL, 
+    DureeR  INTEGER NOT NULL,
+    DureeA  INTEGER NOT NULL,
+    Details  VARCHAR(255) NOT NULL,
+    DetailsPlus  VARCHAR(255) NOT NULL,
+    Profondeur  INTEGER NOT NULL,
+    Cotes  INTEGER NOT NULL,
+    Niveau  INTEGER NOT NULL,
+    Mp3  VARCHAR(255) NOT NULL,
+    Texte  VARCHAR(255) NOT NULL);
