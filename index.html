@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Drag & Drop</title>
-	<link rel="stylesheet" href="Style.css">
+	<link rel="stylesheet" href="projet.css">
 
 	<script>
 		function allowDrop(ev) {
@@ -41,7 +41,7 @@
 					<li class="task" id="drag1" draggable="true" ondragstart="drag(event)">
 						<p>Introduction 1</p>
 					</li>
-					<li class="task">
+					<li class="task" id="drag3" draggable="true" ondragstart="drag(event)">
 						<p>Introduction 2</p>
 		  			</li>
 					<li class="task" id="drag3" draggable="true" ondragstart="drag(event)">
@@ -105,7 +105,36 @@
 	</section>
 
 	<footer>
-		<button id="Valid">Valider</button>
+		<button id="btnConvert">Valider</button>
+
+<script>
+    document.getElementById('btnConvert').addEventListener('click', function() {
+        // Récupérer le contenu de la page HTML
+        var htmlContent = document.documentElement.outerHTML;
+
+        // Envoyer le contenu à Pandoc pour la conversion en LaTeX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost/Latex/latex.html", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Réponse reçue, récupérer le contenu LaTeX
+                var latexContent = xhr.responseText;
+
+                // Créer un lien de téléchargement pour le fichier LaTeX
+                var downloadLink = document.createElement('a');
+                downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(latexContent);
+                downloadLink.download = 'index.tex';
+                downloadLink.click();
+            }
+        };
+
+        // Envoyer le contenu HTML pour conversion en LaTeX
+        xhr.send(JSON.stringify({ html: htmlContent }));
+    });
+</script>
+
 	</footer>
 
 	<script src="Script.js">
