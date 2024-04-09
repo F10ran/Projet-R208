@@ -17,7 +17,7 @@ removeOnSpill: false
   })
   .on("out", function (el, container) {
     container.className.replace("ex-over", "");
-  });
+  }),
 
 /* Vanilla JS to add a new task */
 function addTask() {
@@ -35,3 +35,4 @@ function emptyTrash() {
   /* Clear tasks from 'Trash' column */
   document.getElementById("trash").innerHTML = "";
 }
+
