@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Drag & Drop</title>
 	<link rel="stylesheet" href="projet.css">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 	<script>
 		function allowDrop(ev) {
 		 ev.preventDefault();
@@ -135,30 +135,26 @@
     });
 </script>
 
-<!-- Bouton de téléchargement PDF -->
-<button id="Pdf">PDF</button>
+<button id="Pdf"> PDF</button>
 
 <script>
-// Fonction pour télécharger la page en PDF
-function downloadPageAsPDF() {
-    const pdf = new jsPDF();
-    
-    // Obtenir le contenu de la page
-    const html = document.documentElement.innerHTML;
-    
-    // Ajouter le contenu de la page au PDF
-    pdf.html(html, {
-        callback: function (pdf) {
-            // Télécharger le PDF
-            pdf.save("page_web.pdf");
-        }
-    });
-}
+document.getElementById("Pdf").addEventListener("click", function() {
+    // Options de configuration pour html2pdf.js
+    var options = {
+        margin: 10,
+        filename: 'Drag&Drop.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
 
-// Attacher la fonction de téléchargement au bouton
-document.getElementById("downloadPDF").addEventListener("click", downloadPageAsPDF);
+    // Sélectionner le contenu de la page à convertir en PDF
+    var element = document.body;
+
+    // Convertir le contenu en PDF
+    html2pdf().from(element).set(options).save();
+});
 </script>
-
 
 
 	</footer>
