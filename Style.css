@@ -195,18 +195,34 @@ li {
   filter: alpha(opacity=20);
 }
 
-#Valid {
-  height: 50px;
+#btnConvert {
+  height: 70px;
   width: 150px;
   background-color: limegreen;
-  font-size: medium;
+  font-size: 2.5rem;
   color: #000013;
   border: #000013 solid 3px;
   border-radius: 20px;
   box-shadow: white;
 }
 
-#Valid:hover {
+#btnConvert:hover {
   background: palegreen;
+  box-shadow: grey;
+}
+
+#Pdf {
+  height: 70px;
+  width: 150px;
+  background-color: rgb(177, 52, 52);
+  font-size: 2.5rem;
+  color: #000013;
+  border: #000013 solid 3px;
+  border-radius: 20px;
+  box-shadow: white;
+}
+
+#Pdf:hover {
+  background: rgb(255, 0, 0);
   box-shadow: grey;
 }
