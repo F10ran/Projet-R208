@@ -135,7 +135,30 @@
     });
 </script>
 
+<!-- Bouton de téléchargement PDF -->
 <button id="Pdf">PDF</button>
+
+<script>
+// Fonction pour télécharger la page en PDF
+function downloadPageAsPDF() {
+    const pdf = new jsPDF();
+    
+    // Obtenir le contenu de la page
+    const html = document.documentElement.innerHTML;
+    
+    // Ajouter le contenu de la page au PDF
+    pdf.html(html, {
+        callback: function (pdf) {
+            // Télécharger le PDF
+            pdf.save("page_web.pdf");
+        }
+    });
+}
+
+// Attacher la fonction de téléchargement au bouton
+document.getElementById("downloadPDF").addEventListener("click", downloadPageAsPDF);
+</script>
+
 
 
 	</footer>
