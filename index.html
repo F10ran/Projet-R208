@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Drag & Drop</title>
 	<link rel="stylesheet" href="Style.css">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 	<script>
 		function allowDrop(ev) {
 		 ev.preventDefault();
@@ -41,7 +41,7 @@
 					<li class="task" id="drag1" draggable="true" ondragstart="drag(event)">
 						<p>Introduction 1</p>
 					</li>
-					<li class="task">
+					<li class="task" id="drag3" draggable="true" ondragstart="drag(event)">
 						<p>Introduction 2</p>
 		  			</li>
 					<li class="task" id="drag3" draggable="true" ondragstart="drag(event)">
@@ -105,7 +105,58 @@
 	</section>
 
 	<footer>
-		<button id="Valid">Valider</button>
+		<button id="btnConvert">Latex</button>
+
+<script>
+    document.getElementById('btnConvert').addEventListener('click', function() {
+        // Récupérer le contenu de la page HTML
+        var htmlContent = document.documentElement.outerHTML;
+
+        // Envoyer le contenu à Pandoc pour la conversion en LaTeX
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost/projetR208/index.html", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Réponse reçue, récupérer le contenu LaTeX
+                var latexContent = xhr.responseText;
+
+                // Créer un lien de téléchargement pour le fichier LaTeX
+                var downloadLink = document.createElement('a');
+                downloadLink.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(latexContent);
+                downloadLink.download = 'index.tex';
+                downloadLink.click();
+            }
+        };
+
+        // Envoyer le contenu HTML pour conversion en LaTeX
+        xhr.send(JSON.stringify({ html: htmlContent }));
+    });
+</script>
+
+<button id="Pdf"> PDF</button>
+
+<script>
+document.getElementById("Pdf").addEventListener("click", function() {
+    // Options de configuration pour html2pdf.js
+    var options = {
+        margin: 10,
+        filename: 'Drag&Drop.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Sélectionner le contenu de la page à convertir en PDF
+    var element = document.body;
+
+    // Convertir le contenu en PDF
+    html2pdf().from(element).set(options).save();
+});
+</script>
+
+
 	</footer>
 
 	<script src="Script.js">
